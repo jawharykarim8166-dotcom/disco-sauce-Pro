@@ -301,7 +301,9 @@ DiscoSauceEditor::DiscoSauceEditor(DiscoSauceProcessor& p) : AudioProcessorEdito
     setSize(1096, 976);
 
 #if DS_HAS_ARTWORK
-    artwork = juce::ImageFileFormat::loadFrom(BinaryData::disco_sauce_volcano_4kjpg, (size_t) BinaryData::disco_sauce_volcano_4kjpgSize);
+       int artSize = 0;
+   const char* artData = BinaryData::getNamedResource(BinaryData::namedResourceList[0], artSize);
+   artwork = juce::ImageFileFormat::loadFrom(artData, (size_t) artSize);
 #endif
 
     auto& s = proc.apvts;
