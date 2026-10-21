@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Configure
-           run: cmake -B build -A x64
+        run: cmake -B build -A x64
       - name: Build tests + plugin
         run: cmake --build build --config Release --parallel
       - name: Run DSP tests
